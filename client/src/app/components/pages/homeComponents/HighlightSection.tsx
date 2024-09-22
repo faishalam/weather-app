@@ -7,6 +7,7 @@ export default function HighlightSection() {
         icon,
         theme
     } = useWeatherContext()
+
     return (
         <>
             {!dataListWeather ? (

@@ -3,13 +3,15 @@ import { useWeatherContext } from '../providers/WeatherProvider';
 export default function ToggleSwitchTheme() {
     const {
         setTheme,
-        theme,
+        theme, 
     } = useWeatherContext()
 
 
     const handleClick = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
+
+
     };
 
 

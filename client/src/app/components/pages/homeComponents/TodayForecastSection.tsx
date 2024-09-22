@@ -31,7 +31,7 @@ export default function TodayForecastSection() {
         theme
     } = useWeatherContext();
 
-        const isForecastResponse = (data: unknown): data is ForecastResponse => {
+    const isForecastResponse = (data: unknown): data is ForecastResponse => {
         return (data as ForecastResponse).list !== undefined;
     };
 

@@ -6,6 +6,7 @@ import useWeatherList from "../api/weather/useWeatherList";
 import { ForecastResponseType, WeatherResponseType } from "../type";
 import useForecastThreeHoursList from "../api/weather/useForecasThreeHourstList";
 import ErrorHandler from "../helper/ErrorHandler";
+import { useThemeContext } from "./ThemeProvider";
 
 interface UserLocation {
     latitude: number;
@@ -30,10 +31,11 @@ interface WeatherContextProps {
     setIcon: React.Dispatch<React.SetStateAction<string | null>>,
     isFetchingListWeather: boolean,
     isFetchingListThreeHoursForecast: boolean,
-    setTheme: React.Dispatch<React.SetStateAction<string>>,
-    theme: string | null,
     setFlagLocation: React.Dispatch<React.SetStateAction<boolean>>;
     flagLocation: boolean,
+    theme: string;
+    setTheme: React.Dispatch<React.SetStateAction<string | null>>;
+
 }
 
 interface WeatherProviderProps {
@@ -51,14 +53,16 @@ function useWeatherContext() {
 }
 
 const WeatherProvider = ({ children }: WeatherProviderProps) => {
+    const {
+        theme,
+        setTheme
+    } = useThemeContext()
+
     const { register, handleSubmit } = useForm<FormData>();
     const [search, setSearch] = useState<string>("")
 
     const [icon, setIcon] = useState<string | null>(null);
-    const [theme, setTheme] = useState<string>(localStorage.getItem('theme') || 'dark')
 
-
-    //get user location
     const [location, setLocation] = useState<UserLocation | null>(null);
     const [flagLocation, setFlagLocation] = useState<boolean>(false)
 
@@ -98,9 +102,6 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
         }
     }, [])
 
-    useEffect(() => {
-        localStorage.setItem('theme', theme);
-    }, [theme]);
 
     return (
         <WeatherContext.Provider value={{
@@ -117,10 +118,10 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
             icon,
             isFetchingListWeather,
             isFetchingListThreeHoursForecast,
-            setTheme,
-            theme,
             setFlagLocation,
             flagLocation,
+            theme,
+            setTheme
         }}>
             {children}
         </WeatherContext.Provider>
