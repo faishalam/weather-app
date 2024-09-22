@@ -46,6 +46,7 @@ export default function DailysForecastSection() {
         ...days.slice(0, 5 - (days.length - dayInWeek))
     ];
 
+
     return (
         <>
             <div className={`font-semibold text-sm pt-7 px-7 ${theme === "light" ? "text-gray-500" : "text-white"}`}>
@@ -59,7 +60,7 @@ export default function DailysForecastSection() {
                     {fiveDaysForecast?.map((item: ForecastItem, i: number) => (
                         <div
                             key={i}
-                            className={`w-full max-w-full flex items-center justify-between p-5 ${i === fiveDaysForecast.length - 1 ? "" : "border-b"}`}
+                            className={`w-full max-w-full grid grid-cols-3 justify-between items-center p-5 ${i === fiveDaysForecast.length - 1 ? "" : "border-b"}`}
                         >
                             <p className="text-md">{nextFiveDays[i]}</p>
                             <div className="w-full max-w-full flex flex-col justify-center items-center">
@@ -68,9 +69,9 @@ export default function DailysForecastSection() {
                                     className="w-[80px]"
                                     alt="img"
                                 />
-                                <p className="text-sm">{item?.weather[0].description}</p>
+                                <p className="text-sm">{item?.weather[0].description.split(" ").map((item) => item[0].toUpperCase() + item.slice(1)).join(" ")}</p>
                             </div>
-                            <p className="text-sm">{Math.round(item?.main.temp_min)}° / {Math.round(item?.main.temp_max)}°C</p>
+                            <p className="text-sm flex justify-end">{Math.round(item?.main.temp_min)}° / {Math.round(item?.main.temp_max)}°C</p>
                         </div>
                     ))}
                 </div>
