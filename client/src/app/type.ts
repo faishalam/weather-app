@@ -46,13 +46,6 @@ export interface WeatherResponseType {
     cod: number;
 }
 
-export interface GeoResponseType {
-    country: string;
-    lat: number;
-    lon: number;
-    name: string;
-    state: string
-}
 
 export interface ForecastResponseType {
     list: {

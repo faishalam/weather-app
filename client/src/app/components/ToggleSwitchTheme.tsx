@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useWeatherContext } from '../providers/WeatherProvider';
 
 export default function ToggleSwitchTheme() {

@@ -3,9 +3,9 @@
 import { createContext, useContext, ReactNode, useEffect, useState } from "react";
 import { useForm, UseFormReturn } from "react-hook-form";
 import useWeatherList from "../api/weather/useWeatherList";
-import { AlertError } from "../components/alert/AlertToastify";
 import { ForecastResponseType, WeatherResponseType } from "../type";
 import useForecastThreeHoursList from "../api/weather/useForecasThreeHourstList";
+import ErrorHandler from "../helper/ErrorHandler";
 
 interface UserLocation {
     latitude: number;
@@ -57,7 +57,6 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
     //get user location
     const [location, setLocation] = useState<UserLocation | null>(null);
     const [flagLocation, setFlagLocation] = useState<boolean>(false)
-    const [error, setError] = useState<string>('');
 
 
     const { data: dataListWeather, isLoading: isLoadingDataWeather, isFetching: isFetchingListWeather } = useWeatherList({
@@ -86,12 +85,12 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
                     });
                 },
                 (error) => {
+                    console.log(error);
                     setSearch('Jakarta');
-                    setError(`Error retrieving location: ${error.message}`);
                 }
             );
         } else {
-            setError('Geolocation is not supported by this browser.');
+            ErrorHandler('Geolocation is not supported by this browser.');
         }
     }, [])
 

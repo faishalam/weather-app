@@ -16,13 +16,13 @@ export default function DailysForecastSection() {
 
     const dayInWeek = new Date().getDay()
     const days = [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
     ]
 
     const fiveDaysForecast = (dataListThreeHoursForecast as any)?.list?.filter((item: ForecastItem, index: number) => index % 8 === 0)
@@ -33,7 +33,7 @@ export default function DailysForecastSection() {
     ];
     return (
         <>
-            <div className={`font-semibold text-sm pt-7 px-7 ${theme === 'light' ? 'text-gray-500' : 'text-white'}`}>
+            <div className={`font-semibold text-sm pt-7 px-7 ${theme === 'light' ? "text-gray-500" : "text-white"}`}>
                 <p>DAILY'S FORECAST</p>
             </div>
 

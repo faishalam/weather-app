@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query"
-import { ForecastResponseType, GeoResponseType, WeatherResponseType } from "@/app/type";
+import { ForecastResponseType } from "@/app/type";
 
 interface ForecastThreeHoursParams {
     search?: string;
@@ -22,7 +22,7 @@ const useForecastThreeHoursList = (props: Props) => {
                     q: search,
                     appid: 'dbbbbf4372c452a2a3cc01571350fdcd',
                     units: 'metric',
-                    lat : lat,
+                    lat: lat,
                     lon: lon
                 },
             });
