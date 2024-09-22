@@ -11,6 +11,10 @@ import AirConditionSection from "./components/pages/homeComponents/AirConditionS
 import DailysForecastSection from "./components/pages/homeComponents/DailysForecastSection";
 import ToggleSwitchTheme from "./components/ToggleSwitchTheme";
 
+interface FormData {
+  search: string;
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -38,10 +42,13 @@ function HomeLayout() {
   const date: Date = new Date()
   const formattedDate: string = formatDate(date)
 
-  const onSubmit = (data: any) => {
-    setSearch(data.search)
-    setLocation(null)
-  }
+
+  const onSubmit = (data: FormData) => {
+    if (data) {
+      setSearch(data.search);
+      setLocation(null);
+    }
+  };
 
   useEffect(() => {
     if (dataListWeather) {
@@ -58,7 +65,7 @@ function HomeLayout() {
             <input
               type="text"
               className={`relative border max-w-full md:max-w-4xl p-2 px-5 w-full rounded-xl placeholder:text-sm placeholder:text-gray-400 shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-700 border-black'}`}
-              placeholder="search for cities.."  
+              placeholder="search for cities.."
               {...register('search')}
             />
             <button

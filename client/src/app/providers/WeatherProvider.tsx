@@ -12,9 +12,13 @@ interface UserLocation {
     longitude: number;
 }
 
+interface FormData {
+    search: string;
+}
+
 interface WeatherContextProps {
-    register: UseFormReturn["register"];
-    handleSubmit: UseFormReturn["handleSubmit"];
+    register: UseFormReturn<FormData>["register"];
+    handleSubmit: UseFormReturn<FormData>["handleSubmit"];
     dataListWeather: WeatherResponseType | undefined,
     isLoadingDataWeather: boolean,
     search: string,
@@ -47,7 +51,7 @@ function useWeatherContext() {
 }
 
 const WeatherProvider = ({ children }: WeatherProviderProps) => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm<FormData>();
     const [search, setSearch] = useState<string>("")
 
     const [icon, setIcon] = useState<string | null>(null);

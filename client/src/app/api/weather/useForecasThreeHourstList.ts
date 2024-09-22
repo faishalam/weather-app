@@ -28,7 +28,8 @@ const useForecastThreeHoursList = (props: Props) => {
             });
 
             return response.data
-        } catch (error: any) {
+        } catch (error: unknown) {
+            console.log(error);
             throw new Error('Failed to fetch weather data');
         }
     };
