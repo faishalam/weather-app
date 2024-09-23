@@ -1,9 +1,9 @@
-import { useWeatherContext } from "@/app/providers/WeatherProvider"
+import { useThemeContext } from "@/app/providers/ThemeProvider"
 
 export default function ButtonComponents() {
     const {
         theme
-    } = useWeatherContext()
+    } = useThemeContext()
 
     return (
         <>

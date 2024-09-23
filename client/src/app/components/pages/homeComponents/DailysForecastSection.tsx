@@ -1,5 +1,6 @@
 import { useWeatherContext } from "@/app/providers/WeatherProvider";
 import DailysForecastLoading from "../../loadingSkeleton/DailysForecastLoading";
+import { useThemeContext } from "@/app/providers/ThemeProvider";
 
 interface Weather {
     icon: string;
@@ -25,8 +26,11 @@ export default function DailysForecastSection() {
         dataListThreeHoursForecast,
         isLoadingDataThreeHoursForecast,
         isFetchingListThreeHoursForecast,
-        theme
     } = useWeatherContext();
+
+    const {
+        theme
+    } = useThemeContext()
 
     const dayInWeek = new Date().getDay();
     const days = [

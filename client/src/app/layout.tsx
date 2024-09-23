@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import QueryProvider from "./components/queryProvider/QueryProvider";
-import { ThemeProvider } from "./providers/ThemeProvider";
 
 export const metadata: Metadata = {
   title: "Weather App",
-  description: "Weather App",
+  description: "Weather App & Forecast",
 };
 
 export default function RootLayout({
@@ -16,13 +15,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <ThemeProvider>
-        <QueryProvider>
+      <QueryProvider>
           <body className="flex min-h-screen flex-1 flex-col px-5 md:px-20 h-screen">
-          {children}
+            {children}
           </body>
-        </QueryProvider>
-      </ThemeProvider>
+      </QueryProvider>
     </html>
   );
 }

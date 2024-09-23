@@ -1,13 +1,16 @@
 import { useWeatherContext } from "@/app/providers/WeatherProvider"
 import HighlightLoading from "../../loadingSkeleton/HighlightLoading"
+import { useThemeContext } from "@/app/providers/ThemeProvider"
 
 export default function HighlightSection() {
     const {
         dataListWeather,
         icon,
-        theme
     } = useWeatherContext()
 
+    const {
+        theme
+    } = useThemeContext()
 
     return (
         <>

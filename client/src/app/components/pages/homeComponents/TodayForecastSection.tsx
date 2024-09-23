@@ -1,6 +1,7 @@
 import formatTime from "@/app/helper/FormatTime";
 import { useWeatherContext } from "@/app/providers/WeatherProvider";
 import TodayForecastLoading from "../../loadingSkeleton/TodayForecastLoading";
+import { useThemeContext } from "@/app/providers/ThemeProvider";
 
 interface Weather {
     icon: string;
@@ -28,8 +29,11 @@ export default function TodayForecastSection() {
         dataListThreeHoursForecast,
         isLoadingDataThreeHoursForecast,
         isFetchingListThreeHoursForecast,
+    } = useWeatherContext()
+
+    const {
         theme
-    } = useWeatherContext();
+    } = useThemeContext()
 
     const isForecastResponse = (data: unknown): data is ForecastResponse => {
         return (data as ForecastResponse).list !== undefined;

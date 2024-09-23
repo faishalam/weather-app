@@ -35,9 +35,7 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
         if (theme) {
             localStorage.setItem('theme', theme);
         }
-    }, [theme]);
-
-    console.log(theme);
+    }, [theme]);    
 
     if (!theme) return null
 

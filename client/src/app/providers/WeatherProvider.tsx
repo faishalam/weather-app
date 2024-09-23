@@ -6,7 +6,6 @@ import useWeatherList from "../api/weather/useWeatherList";
 import { ForecastResponseType, WeatherResponseType } from "../type";
 import useForecastThreeHoursList from "../api/weather/useForecasThreeHourstList";
 import ErrorHandler from "../helper/ErrorHandler";
-import { useThemeContext } from "./ThemeProvider";
 
 interface UserLocation {
     latitude: number;
@@ -33,9 +32,6 @@ interface WeatherContextProps {
     isFetchingListThreeHoursForecast: boolean,
     setFlagLocation: React.Dispatch<React.SetStateAction<boolean>>;
     flagLocation: boolean,
-    theme: string;
-    setTheme: React.Dispatch<React.SetStateAction<string | null>>;
-
 }
 
 interface WeatherProviderProps {
@@ -53,14 +49,8 @@ function useWeatherContext() {
 }
 
 const WeatherProvider = ({ children }: WeatherProviderProps) => {
-    const {
-        theme,
-        setTheme
-    } = useThemeContext()
-
     const { register, handleSubmit } = useForm<FormData>();
     const [search, setSearch] = useState<string>("")
-
     const [icon, setIcon] = useState<string | null>(null);
 
     const [location, setLocation] = useState<UserLocation | null>(null);
@@ -120,8 +110,6 @@ const WeatherProvider = ({ children }: WeatherProviderProps) => {
             isFetchingListThreeHoursForecast,
             setFlagLocation,
             flagLocation,
-            theme,
-            setTheme
         }}>
             {children}
         </WeatherContext.Provider>

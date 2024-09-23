@@ -3,15 +3,18 @@ import { CiTempHigh } from "react-icons/ci";
 import { LiaCloudSolid } from "react-icons/lia";
 import { WiHumidity, WiStrongWind } from "react-icons/wi";
 import AirConditionLoading from "../../loadingSkeleton/AirConditionLoading";
+import { useThemeContext } from "@/app/providers/ThemeProvider";
 
 export default function AirConditionSection() {
     const {
         dataListWeather,
         isFetchingListWeather,
         isLoadingDataWeather,
-        theme
     } = useWeatherContext()
 
+    const {
+        theme
+    } = useThemeContext()
 
     return (
         <>
