@@ -1,5 +1,9 @@
 DEPLOYMENT LINK : https://weather-app-dun-sigma-55.vercel.app/
 
+## Layout
+![Screenshot showing weather app layout](/client/src/app/assets/layout-screenshoot.png)
+
+
 ## Tech
  - Typescript
  - React Query
