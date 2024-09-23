@@ -3,7 +3,6 @@ import "./globals.css";
 import QueryProvider from "./components/queryProvider/QueryProvider";
 import { ThemeProvider } from "./providers/ThemeProvider";
 
-
 export const metadata: Metadata = {
   title: "Weather App",
   description: "Weather App",

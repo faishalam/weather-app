@@ -13,6 +13,7 @@ interface Props {
     params: WeatherParams;
 }
 
+
 const useWeatherList = (props: Props) => {
     const { search, lat, lon } = props.params;
 
@@ -24,7 +25,7 @@ const useWeatherList = (props: Props) => {
                     ...(lon && { lon: lon }),
                     units: 'metric',
                     q: search,
-                    appid: 'dbbbbf4372c452a2a3cc01571350fdcd',
+                    appid: process.env.NEXT_PUBLIC_API_KEY,
                 },
             })
 

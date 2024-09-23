@@ -96,3 +96,11 @@ export interface ForecastResponseType {
         cod: number;
     }
 }
+
+export interface ImportMetaEnv {
+    VITE_API_URL: string; // Adjust this based on your actual environment variable names
+}
+
+export interface ImportMeta {
+    readonly env: ImportMetaEnv;
+}
