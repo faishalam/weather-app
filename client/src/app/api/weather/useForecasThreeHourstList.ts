@@ -21,7 +21,7 @@ const useForecastThreeHoursList = (props: Props) => {
             const response = await axios.get<ForecastResponseType>(`https://api.openweathermap.org/data/2.5/forecast`, {
                 params: {
                     q: search,
-                    appid: 'dbbbbf4372c452a2a3cc01571350fdcd',
+                    appid: process.env.NEXT_PUBLIC_API_KEY,
                     units: 'metric',
                     lat: lat,
                     lon: lon
