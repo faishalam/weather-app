@@ -1,4 +1,4 @@
-DEPLOYMENT LINK : https://weather-app-beta-topaz-85.vercel.app/
+DEPLOYMENT LINK : https://weather-app-dun-sigma-55.vercel.app/
 
 ## Tech
  - Typescript
@@ -24,6 +24,7 @@ First clone :
 ```
 npm i
 ```
+.env file already on repo
 
 Run the development server:
 
