@@ -9,12 +9,12 @@ DEPLOYMENT LINK : https://weather-app-dun-sigma-55.vercel.app/
  - Weather API
 
 ## Features
- - Get weather by search 
- - Get weather by geo location (lon, lan)
+ - Get weather by search city, lon, lan
+ - Get forecast by search city, lon, lan
  - Daily Forecast
  - Today Forecast
  - Responsive design
- - Dark & light mode
+ - Dark & light theme mode
  - Loading skeleton
 
 ## Getting Started
